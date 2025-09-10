@@ -10,6 +10,7 @@ const {serve} =require("@upstash/workflow/express");
     const {subscriptionId}=context.requestPayload;
     const subscription=await fetchSubscription(context,subscriptionId);
     if(!subscription || subscription.status !="active")return;
+    // dayjs -current date and time
     const renewalDate= dayjs(subscription.renewalDate);
     if(renewalDate.isBefore(dayjs())){
         console.log(`renewal date has passed for subscription ${subscriptionId}.Stopping workflow`);

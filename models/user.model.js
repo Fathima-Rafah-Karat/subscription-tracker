@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
     minLength: 6,
   }
-  //   timestamps  -a record of date and time when something happens.
+  //   timestamps  -a record of date and time when something happens.it automatically adds two field like createdAt,updateAt
 }, { timestamps: true });
 const User = mongoose.model("user", userSchema);
 export default User;
